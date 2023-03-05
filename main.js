@@ -58,3 +58,59 @@ for (let star of stars) {
   star.draw();
   star.drawLines(stars);
 }
+function moon() {
+  fill (192,192,192);
+  ellipse(340, 900, 1000);
+  fill (220,220,220);
+  ellipse(340, 900, 985);
+
+  fill (169,169,169);
+  ellipse(170, 580, 90);
+  fill(192,192,192);
+  ellipse(170, 580, 80);
+
+  fill (169,169,169);
+  ellipse(240, 480, 40);
+  fill (192,192,192);
+  ellipse(240, 480, 30);
+
+  fill (169,169,169);
+  ellipse(540, 530, 60);
+  fill (192,192,192);
+  ellipse(540, 530, 50);
+
+  fill (169,169,169);
+  ellipse(390, 470, 80);
+  fill (192,192,192);
+  ellipse(390, 470, 70);
+
+  fill (169,169,169);
+  ellipse(390, 610, 40);
+  fill (192,192,192);
+  ellipse(390, 610, 30);
+
+  fill (169,169,169);
+  ellipse(50, 550, 40);
+  fill (192,192,192);
+  ellipse(50, 550, 30);
+
+  fill (169,169,169);
+  ellipse(120, 480, 20);
+  fill (192,192,192);
+  ellipse(120, 480, 15);
+
+  fill (169,169,169);
+  ellipse(680, 600, 60);
+  fill (192,192,192);
+  ellipse(680, 600, 50);
+}
+function draw() {
+  background(0, 0, 0);
+  fill(255, 255, 255);
+  for (let star of stars) {
+    star.update();
+    star.draw();
+    star.drawLines(stars);
+  }
+  moon();
+}
