@@ -17,3 +17,44 @@ constructor() {
   this.xSpeed = random(-1, 1);
   this.ySpeed = random(-1, 1);
 }
+
+  update() {
+  this.x += this.xSpeed;
+  this.y += this.ySpeed;
+  this.wrap();
+}
+
+wrap() {
+  if (this.x > width) this.x = 0;
+  if (this.y > height) this.y = 0;
+  if (this.x < 0) this.x = width;
+  if (this.y < 0) this.y = height;
+}
+
+draw() {
+  circle(this.x, this.y, this.r);
+}
+
+drawLines(stars) {
+  for (let star of stars) {
+    if (dist(this.x, this.y, star.x, star.y) < distance) {
+      stroke('rgba(255,255,255,0.2)');
+      line(this.x, this.y, star.x, star.y);
+    }
+  }
+}
+}
+function draw() {
+background(0, 0, 0);
+fill(255, 255, 255);
+for (let star of stars) {
+  star.update();
+  star.draw();
+  star.drawLines(stars);
+}
+}
+for (let star of stars) {
+  star.update();
+  star.draw();
+  star.drawLines(stars);
+}
