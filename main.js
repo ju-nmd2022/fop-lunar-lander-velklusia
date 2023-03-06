@@ -109,8 +109,10 @@ function onScreen(x, y) {
 
 a = 300;
 b = 640;
+rocketX = 500;
+rocketY = 80;
 
-function rocket(rocketX,rocketY) {
+function rocket(a, b) {
   //Flames
   noStroke();
   fill(255, 185, 0);
@@ -137,11 +139,11 @@ function rocket(rocketX,rocketY) {
   ellipse(a, b + 32, 5, 30);
   //Tip of the rocket, credits to Samira for helping me out <3
   beginShape();
-vertex(a - 15, b - 24);
-bezierVertex(a - 5, b - 21, a + 4, b - 21, a + 14, b-24);
-bezierVertex(a + 12, b - 31, a + 9, b - 40, a - 1, b - 57);
-bezierVertex(a - 14, b - 31, a - 9, b - 40, a - 15, b - 23);
-endShape();
+  vertex(a - 15, b - 24);
+  bezierVertex(a - 5, b - 21, a + 4, b - 21, a + 14, b-24);
+  bezierVertex(a + 12, b - 31, a + 9, b - 40, a - 1, b - 57);
+  bezierVertex(a - 14, b - 31, a - 9, b - 40, a - 15, b - 23);
+  endShape();
 }
 
 function moon() {
@@ -191,13 +193,12 @@ function moon() {
   fill (192,192,192);
   ellipse(680, 600, 50);
 } 
-let rocketX = 500;
-let rocketY = 80;
+
 let powerX = 300;
 let powerY = 0;
 let velocity = 0.15;
 let acceleration = 0.25;
-let isModeEqualOne = false;
+let isGameActive = false;
 
 function draw() {
   background(0, 0, 0);
@@ -207,11 +208,11 @@ function draw() {
   fill (255,255,0);
   rocket(rocketX, rocketY);
   if (keyIsDown(32)) {
-    isModeEqualOne = true;
+    isGameActive = true;
   }
-  if (isModeEqualOne) {
-    a = a + powerX;
-    b = b + powerY;
+  if (isGameActive) {
+    rocketX= rocketX + powerX;
+    rocketY = rocketY + powerY;
     if (keyIsDown(38)) {
       powerY = acceleration + velocity;
       velocity = velocity - acceleration;
@@ -229,11 +230,11 @@ function draw() {
     } else {
       powerX = 0;
     }
-    if (b >  400) {
-      isModeEqualOne= false;
+    if (rocketY >  400) {
+      isGameActive= false;
     }
-    if (b <   0) {
-      isModeEqualOne= false;
+    if (rocketY <   0) {
+      isGameActive= false;
     }
   }
 }
