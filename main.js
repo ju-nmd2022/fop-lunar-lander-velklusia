@@ -113,14 +113,13 @@ let b;
 a = 300;
 b = 640;
 
-function rocket() {
+function rocket(a,b) {
   //Flames
   noStroke();
   fill(255, 185, 0);
   ellipse(a, b + random(35, 55), 20, 60);
   fill(255, 255, 0);
   ellipse(a, b + random(35, 50), 15, 40);
-
   //Wings on sides
   noStroke();
   fill(102, 0, 204);
@@ -210,7 +209,7 @@ function draw() {
   winningScreen();
   moon();
   fill (255,255,0);
-  rocket();
+  rocket(500, 80);
   if (keyIsDown(32)) {
     isModeEqualOne = true;
   }
