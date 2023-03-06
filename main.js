@@ -1,5 +1,7 @@
 function setup() {
   createCanvas(700, 600);
+  a = 300;
+  b = 640;
   for (let i = 0; i < numberOfStars; i++) {
     stars.push(new star());
   }
@@ -46,32 +48,30 @@ drawLines(stars) {
 }
 
 function rocket() {
-  push();
   noStroke();
   fill(255, 185, 0);
-  ellipse(300, 640 + random(35, 55), 20, 60);
+  ellipse(a, b + random(35, 55), 20, 60);
   fill(255, 255, 0);
-  ellipse(300, 640 + random(35, 50), 15, 40);
+  ellipse(a, b + random(35, 50), 15, 40);
 
   //Wings on sides
   noStroke();
   fill(102, 0, 204);
-  arc(300, 676, 40, 40, PI, 0, CHORD);
+  arc(a, b + 36, 40, 40, PI, 0, CHORD);
   //Rocket
   stroke(2);
   fill(204, 153, 255);
-  ellipse(300, 640, 30, 80);
+  ellipse(a, b, 30, 80);
   //Window
   noStroke();
   fill(0);
-  ellipse(300, 632 , 20, 20);
+  ellipse(a, b -8 , 20, 20);
   fill(255);
-  ellipse(300, 632 , 16, 16);
+  ellipse(a, b -8 , 16, 16);
   //Front wing
   stroke(2);
   fill(102, 0, 204);
-  ellipse(300, 672, 5, 30);
-  pop();
+  ellipse(a, b + 32, 5, 30);
 }
 
 function moon() {
