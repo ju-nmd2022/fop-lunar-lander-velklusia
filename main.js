@@ -1,5 +1,7 @@
 const numberOfAsteroids = 700;
 let asteroids = [];
+let a;
+let b;
 
 function setup() {
   createCanvas(700, 600);
@@ -9,14 +11,14 @@ function setup() {
   for(let i = 0; i < numberOfAsteroids; i ++) {
     asteroids.push(new Asteroid(random(width), random(height)));
   }
+  a = 300;
+  b = 640;
 }
 
 //Main background animation
 const numberOfStars = 250;
 const distance = 35;
 let stars = [];
-const a = 300;
-const b = 640;
 
 class star {
 constructor() {
@@ -187,17 +189,17 @@ function moon() {
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
-  for (let star of stars) {
-    star.update();
-    star.draw();
-    star.drawLines(stars);
-  }
-  winningScreen();
+  welcomingScreen();
   moon();
   rocket();
 }
 
 function welcomingScreen(x, y) {
+  for (let star of stars) {
+    star.update();
+    star.draw();
+    star.drawLines(stars);
+  }
   fill(0);
   rect(0, 30, width/1.2, 90);
   fill(255);
@@ -211,6 +213,11 @@ function welcomingScreen(x, y) {
 }
 
 function gameOverScreen(x, y) {
+  for (let star of stars) {
+    star.update();
+    star.draw();
+    star.drawLines(stars);
+  }
   fill(0);
   rect(0, 30, width/2, 110);
   fill(255);
@@ -224,6 +231,7 @@ function gameOverScreen(x, y) {
 }
 
 function winningScreen(x, y) {
+  animation();
   fill(0);
   rect(0, 30, width/1.8, 100);
   fill(255);
@@ -233,5 +241,4 @@ function winningScreen(x, y) {
   textSize(17);
   textFont("Courier New");
   text("The mission ended up as a success.", 50, 100);
-  animation();
 }
