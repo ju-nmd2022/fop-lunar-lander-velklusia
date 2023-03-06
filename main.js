@@ -130,7 +130,7 @@ function draw() {
     star.draw();
     star.drawLines(stars);
   }
-  winningScreen();
+  gameOverScreen();
   moon();
   rocket();
 }
@@ -149,14 +149,15 @@ function welcomingScreen(x, y) {
 
 function gameOverScreen(x, y) {
   fill(0);
-  rect(0, 0, width, 130);
+  rect(0, 30, width/2, 110);
   fill(255);
   textSize(20);
   textFont("Courier New");
-  text("You lost!", 50, 70);
+  text("You lost! 🤯", 50, 70);
   textSize(17);
   textFont("Courier New");
-  text("Maybe next time it is going to go better for you.", 50, 100);
+  text("Maybe next time it is going to", 50, 100);
+  text("go better for you.", 50, 120);
 }
 
 function winningScreen(x, y) {
