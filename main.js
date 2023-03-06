@@ -62,7 +62,7 @@ drawLines(stars) {
 function animation() {
   background(0, 50);
   
-  const acc = map(mouseX, 0, width, 0.25, 0.2);
+  const acc = map(mouseX, 0, width, 0.25, 0.1);
   
   asteroids = asteroids.filter(asteroid => {
     asteroid.draw();
@@ -101,7 +101,7 @@ class Asteroid {
   }
   
   draw() {
-    const alpha = map(this.velocity.mag(), 0, 3, 0, 255);
+    const alpha = map(this.velocity.mag(), 0, 13, 120, 255);
     stroke(255, alpha);
     line(this.position.x, this.position.y, this.prevPosition.x, this.prevPosition.y);
   }
@@ -189,7 +189,7 @@ function moon() {
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
-  welcomingScreen();
+  winningScreen();
   moon();
   rocket();
 }
