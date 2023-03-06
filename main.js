@@ -304,4 +304,3 @@ function gamingScreen() {
       isGameActive= false;
     }
   }
-}
