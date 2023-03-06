@@ -200,6 +200,21 @@ let velocity = 0.15;
 let acceleration = 0.25;
 let isGameActive = false;
 
+function draw(){
+  if (mode === "start"){
+    startingScreen();
+  }
+  else if (mode === "game"){
+    gamingScreen();
+  }
+  else if (mode === "win"){
+    winningScreen();
+  }
+  else if (mode === "lose"){
+    losingScreen();
+  }
+}
+
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
