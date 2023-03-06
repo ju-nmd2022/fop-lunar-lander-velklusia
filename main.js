@@ -78,7 +78,7 @@ function animation() {
 class Asteroid {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.prevPosition = createVector(x, y);
+    this.previousPosition = createVector(x, y);
     
     this.velocity = createVector(0, 0);
     
@@ -86,15 +86,15 @@ class Asteroid {
   }
   
   isActive() {
-    return onScreen(this.prevPosition.x, this.prevPosition.y);
+    return onScreen(this.previousPosition.x, this.previousPosition.y);
   }
   
   update(acc) {
     this.velocity.x += cos(this.ang) * acc;
     this.velocity.y += sin(this.ang) * acc;
     
-    this.prevPosition.x = this.position.x;
-    this.prevPosition.y = this.position.y;
+    this.previousPosition.x = this.position.x;
+    this.previousPosition.y = this.position.y;
     
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
@@ -103,7 +103,7 @@ class Asteroid {
   draw() {
     const alpha = map(this.velocity.mag(), 0, 13, 120, 255);
     stroke(255, alpha);
-    line(this.position.x, this.position.y, this.prevPosition.x, this.prevPosition.y);
+    line(this.position.x, this.position.y, this.previousPosition.x, this.previousPosition.y);
   }
 }
 
