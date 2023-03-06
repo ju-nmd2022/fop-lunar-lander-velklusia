@@ -110,7 +110,7 @@ function onScreen(x, y) {
 a = 300;
 b = 640;
 
-function rocket(a,b) {
+function rocket(rocketX,rocketY) {
   //Flames
   noStroke();
   fill(255, 185, 0);
@@ -191,7 +191,8 @@ function moon() {
   fill (192,192,192);
   ellipse(680, 600, 50);
 } 
-
+let rocketX = 500;
+let rocketY = 80;
 let powerX = 300;
 let powerY = 0;
 let velocity = 0.15;
@@ -204,7 +205,7 @@ function draw() {
   winningScreen();
   moon();
   fill (255,255,0);
-  rocket(500, 80);
+  rocket(rocketX, rocketY);
   if (keyIsDown(32)) {
     isModeEqualOne = true;
   }
