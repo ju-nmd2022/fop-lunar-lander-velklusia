@@ -44,21 +44,36 @@ drawLines(stars) {
   }
 }
 }
-function draw() {
-background(0, 0, 0);
-fill(255, 255, 255);
-for (let star of stars) {
-  star.update();
-  star.draw();
-  star.drawLines(stars);
+
+function rocket() {
+  noStroke();
+  fill(255, 185, 0);
+  ellipse(300, 640 + random(35, 55), 20, 60);
+  fill(255, 255, 0);
+  ellipse(300, 640 + random(35, 50), 15, 40);
+
+  //Wings on sides
+  noStroke();
+  fill(102, 0, 204);
+  arc(300, 676, 40, 40, PI, 0, CHORD);
+  //Rocket
+  stroke(2);
+  fill(204, 153, 255);
+  ellipse(300, 640, 30, 80);
+  //Window
+  noStroke();
+  fill(0);
+  ellipse(300, 632 , 20, 20);
+  fill(255);
+  ellipse(300, 632 , 16, 16);
+  //Front wing
+  stroke(2);
+  fill(102, 0, 204);
+  ellipse(300, 672, 5, 30);
 }
-}
-for (let star of stars) {
-  star.update();
-  star.draw();
-  star.drawLines(stars);
-}
+
 function moon() {
+  noStroke();
   fill (192,192,192);
   ellipse(340, 900, 1000);
   fill (220,220,220);
@@ -104,6 +119,7 @@ function moon() {
   fill (192,192,192);
   ellipse(680, 600, 50);
 }
+
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
@@ -113,4 +129,6 @@ function draw() {
     star.drawLines(stars);
   }
   moon();
+  rocket();
 }
+
