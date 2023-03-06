@@ -133,7 +133,6 @@ function draw() {
   winningScreen();
   moon();
   rocket();
-  
 }
 
 function welcomingScreen(x, y) {
@@ -162,11 +161,11 @@ function gameOverScreen(x, y) {
 
 function winningScreen(x, y) {
   fill(0);
-  rect(0, 0, width, 130);
+  rect(0, 30, width/1.8, 100);
   fill(255);
   textSize(20);
   textFont("Courier New");
-  text("You won!", 50, 70);
+  text("You won! 🚀", 50, 70);
   textSize(17);
   textFont("Courier New");
   text("The mission ended up as a success.", 50, 100);
