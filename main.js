@@ -200,6 +200,7 @@ let velocity = 0.15;
 let acceleration = 0.25;
 let isGameActive = false;
 
+//Screen changes
 function draw(){
   if (mode === "start"){
     startingScreen();
@@ -253,6 +254,8 @@ function draw() {
     }
   }
 }
+
+//Functions for screens
 
 function welcomingScreen(x, y) {
   for (let star of stars) {
