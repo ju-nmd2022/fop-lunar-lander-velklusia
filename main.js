@@ -130,18 +130,19 @@ function draw() {
     star.draw();
     star.drawLines(stars);
   }
-  gameOverScreen();
+  welcomingScreen();
   moon();
   rocket();
 }
 
 function welcomingScreen(x, y) {
   fill(0);
-  rect(0, 0, width, 130);
+  rect(0, 30, width/1.2, 90);
   fill(255);
   textSize(20);
   textFont("Courier New");
-  text("Press the space to start your space journey", 50, 70);
+  text("Press space to initiate", 50, 70);
+  text("Press space to initiate the launching protocol...", 50, 70);
   textSize(17);
   textFont("Courier New");
   text("Lunar Lander Game by vel klusia", 50, 100);
