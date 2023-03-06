@@ -2,6 +2,8 @@ const numberOfAsteroids = 700;
 let asteroids = [];
 let a;
 let b;
+a = 300;
+b = 640;
 
 function setup() {
   createCanvas(700, 600);
@@ -11,8 +13,6 @@ function setup() {
   for(let i = 0; i < numberOfAsteroids; i ++) {
     asteroids.push(new Asteroid(random(width), random(height)));
   }
-  a = 300;
-  b = 640;
 }
 
 //Main background animation
@@ -104,7 +104,7 @@ class Asteroid {
     const alpha = map(this.velocity.mag(), 0, 13, 120, 255);
     stroke(255, alpha);
     line(this.position.x, this.position.y, this.previousPosition.x, this.previousPosition.y);
-  }
+}
 }
 
 function onScreen(x, y) {
@@ -112,6 +112,7 @@ function onScreen(x, y) {
 }
 
 function rocket() {
+  //Flames
   noStroke();
   fill(255, 185, 0);
   ellipse(a, b + random(35, 55), 20, 60);
@@ -184,14 +185,53 @@ function moon() {
   ellipse(680, 600, 60);
   fill (192,192,192);
   ellipse(680, 600, 50);
-}
+} 
+
+let rocketX = 300;
+let rocketY = 0;
+let powerX = 300;
+let powerY = 0;
+let velocity = 0.15;
+let acceleration = 0.25;
+let isModeEqualOne = false;
 
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
   winningScreen();
   moon();
+  fill (255,255,0);
   rocket();
+  if (keyIsDown(32)) {
+    isModeEqualOne = true;
+  }
+  if (isModeEqualOne) {
+    rocketX = rocketX + powerX;
+    rocketY = rocketY + powerY;
+    if (keyIsDown(38)) {
+      powerY = acceleration + velocity;
+      velocity = velocity - acceleration;
+    } else if (keyIsDown(40)) {
+      powerY = 10 + velocity;
+      velocity = velocity + acceleration;
+    } else {
+      powerY = powerY + 0.15;
+      velocity = 0.25;
+    }
+    if (keyIsDown(37)) {
+      powerX = -6;
+    } else if (keyIsDown(39)) {
+      powerX = 6;
+    } else {
+      powerX = 0;
+    }
+    if (rocketY >  400) {
+      isModeEqualOne= false;
+    }
+    if (rocketY <   0) {
+      isModeEqualOne= false;
+    }
+  }
 }
 
 function welcomingScreen(x, y) {
