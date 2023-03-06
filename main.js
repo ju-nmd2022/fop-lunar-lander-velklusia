@@ -1,9 +1,5 @@
 const numberOfAsteroids = 700;
 let asteroids = [];
-let a;
-let b;
-a = 300;
-b = 640;
 
 function setup() {
   createCanvas(700, 600);
@@ -111,6 +107,12 @@ function onScreen(x, y) {
   return x >= 0 && x <= width && y >= 0 && y <= height;  
 }
 
+let a;
+let b;
+
+a = 300;
+b = 640;
+
 function rocket() {
   //Flames
   noStroke();
@@ -126,7 +128,7 @@ function rocket() {
   //Rocket
   stroke(2);
   fill(204, 153, 255);
-  ellipse(a, b, 30, 80);
+  ellipse(a, b, 35, 80);
   //Window
   noStroke();
   fill(0);
@@ -137,6 +139,13 @@ function rocket() {
   stroke(2);
   fill(102, 0, 204);
   ellipse(a, b + 32, 5, 30);
+  //Tip of the rocket, credits to Samira for helping me out <3
+  beginShape();
+  vertex(285, 616);
+  bezierVertex(295, 619, 304, 619, 314, 616);
+  bezierVertex(312, 609, 309, 600, 299, 583);
+  bezierVertex(286, 609, 291, 600, 285, 617);
+  endShape();
 }
 
 function moon() {
