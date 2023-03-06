@@ -107,9 +107,6 @@ function onScreen(x, y) {
   return x >= 0 && x <= width && y >= 0 && y <= height;  
 }
 
-let a;
-let b;
-
 a = 300;
 b = 640;
 
@@ -140,11 +137,11 @@ function rocket(a,b) {
   ellipse(a, b + 32, 5, 30);
   //Tip of the rocket, credits to Samira for helping me out <3
   beginShape();
-  vertex(285, 616);
-  bezierVertex(295, 619, 304, 619, 314, 616);
-  bezierVertex(312, 609, 309, 600, 299, 583);
-  bezierVertex(286, 609, 291, 600, 285, 617);
-  endShape();
+vertex(a - 15, b - 24);
+bezierVertex(a - 5, b - 21, a + 4, b - 21, a + 14, b-24);
+bezierVertex(a + 12, b - 31, a + 9, b - 40, a - 1, b - 57);
+bezierVertex(a - 14, b - 31, a - 9, b - 40, a - 15, b - 23);
+endShape();
 }
 
 function moon() {
@@ -195,8 +192,6 @@ function moon() {
   ellipse(680, 600, 50);
 } 
 
-let rocketX = 300;
-let rocketY = 0;
 let powerX = 300;
 let powerY = 0;
 let velocity = 0.15;
@@ -214,8 +209,8 @@ function draw() {
     isModeEqualOne = true;
   }
   if (isModeEqualOne) {
-    rocketX = rocketX + powerX;
-    rocketY = rocketY + powerY;
+    a = a + powerX;
+    b = b + powerY;
     if (keyIsDown(38)) {
       powerY = acceleration + velocity;
       velocity = velocity - acceleration;
@@ -233,10 +228,10 @@ function draw() {
     } else {
       powerX = 0;
     }
-    if (rocketY >  400) {
+    if (b >  400) {
       isModeEqualOne= false;
     }
-    if (rocketY <   0) {
+    if (b <   0) {
       isModeEqualOne= false;
     }
   }
