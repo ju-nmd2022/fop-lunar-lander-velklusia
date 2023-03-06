@@ -130,7 +130,7 @@ function draw() {
     star.draw();
     star.drawLines(stars);
   }
-  welcomingScreen();
+  winningScreen();
   moon();
   rocket();
   
@@ -148,3 +148,26 @@ function welcomingScreen(x, y) {
   text("Lunar Lander Game by vel klusia", 50, 100);
 }
 
+function gameOverScreen(x, y) {
+  fill(0);
+  rect(0, 0, width, 130);
+  fill(255);
+  textSize(20);
+  textFont("Courier New");
+  text("You lost!", 50, 70);
+  textSize(17);
+  textFont("Courier New");
+  text("Maybe next time it is going to go better for you.", 50, 100);
+}
+
+function winningScreen(x, y) {
+  fill(0);
+  rect(0, 0, width, 130);
+  fill(255);
+  textSize(20);
+  textFont("Courier New");
+  text("You won!", 50, 70);
+  textSize(17);
+  textFont("Courier New");
+  text("The mission ended up as a success.", 50, 100);
+}
