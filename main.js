@@ -46,6 +46,7 @@ drawLines(stars) {
 }
 
 function rocket() {
+  push();
   noStroke();
   fill(255, 185, 0);
   ellipse(300, 640 + random(35, 55), 20, 60);
@@ -70,6 +71,7 @@ function rocket() {
   stroke(2);
   fill(102, 0, 204);
   ellipse(300, 672, 5, 30);
+  pop();
 }
 
 function moon() {
