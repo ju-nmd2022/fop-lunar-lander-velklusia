@@ -1,7 +1,5 @@
 function setup() {
   createCanvas(700, 600);
-  a = 300;
-  b = 640;
   for (let i = 0; i < numberOfStars; i++) {
     stars.push(new star());
   }
@@ -10,6 +8,8 @@ function setup() {
 const numberOfStars = 250;
 const distance = 35;
 let stars = [];
+const a = 300;
+const b = 640;
 
 class star {
 constructor() {
@@ -130,7 +130,21 @@ function draw() {
     star.draw();
     star.drawLines(stars);
   }
+  welcomingScreen();
   moon();
   rocket();
+  
+}
+
+function welcomingScreen(x, y) {
+  fill(0);
+  rect(0, 0, width, 130);
+  fill(255);
+  textSize(20);
+  textFont("Courier New");
+  text("Press the space to start your space journey", 50, 70);
+  textSize(17);
+  textFont("Courier New");
+  text("Lunar Lander Game by vel klusia", 50, 100);
 }
 
