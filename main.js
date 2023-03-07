@@ -219,10 +219,9 @@ function draw(){
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
-  welcomingScreen();
+  gameScreen();
   moon();
   fill (255,255,0);
-  rocket(rocketX, rocketY);
   if (keyIsDown(32)) {
     isGameActive = true;
   }
@@ -273,6 +272,15 @@ function welcomingScreen(x, y) {
   textSize(17);
   textFont("Courier New");
   text("Lunar Lander Game by vel klusia", 50, 100);
+}
+
+function gameScreen(){
+  for (let star of stars) {
+    star.update();
+    star.draw();
+    star.drawLines(stars);
+  }
+  rocket(height/2.2, width/8);
 }
 
 function gameOverScreen(x, y) {
