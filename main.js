@@ -219,7 +219,7 @@ function draw(){
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
-  gameScreen();
+  gameOverScreen();
   moon();
   fill (255,255,0);
   if (keyIsDown(32)) {
@@ -290,7 +290,7 @@ function gameOverScreen(x, y) {
     star.drawLines(stars);
   }
   fill(0);
-  rect(0, 30, width/2, 110);
+  rect(0, 30, width/1.7, 140);
   fill(255);
   textSize(20);
   textFont("Courier New");
@@ -299,6 +299,8 @@ function gameOverScreen(x, y) {
   textFont("Courier New");
   text("Maybe next time it is going to", 50, 100);
   text("go better for you.", 50, 120);
+  textSize(14);
+  text("Press space to restart the mission...", 50, 150);
 }
 
 function winningScreen(x, y) {
