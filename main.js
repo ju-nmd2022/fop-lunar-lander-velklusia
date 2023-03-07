@@ -219,7 +219,7 @@ function draw(){
 function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
-  gameOverScreen();
+  winningScreen();
   fill (255,255,0);
   if (keyIsDown(32)) {
     isGameActive = true;
@@ -314,4 +314,5 @@ function winningScreen(x, y) {
   textSize(17);
   textFont("Courier New");
   text("The mission ended up as a success.", 50, 100);
+  moon();
 }
