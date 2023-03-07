@@ -220,7 +220,6 @@ function draw() {
   background(0, 0, 0);
   fill(255, 255, 255);
   gameOverScreen();
-  moon();
   fill (255,255,0);
   if (keyIsDown(32)) {
     isGameActive = true;
@@ -301,6 +300,7 @@ function gameOverScreen(x, y) {
   text("go better for you.", 50, 120);
   textSize(14);
   text("Press space to restart the mission...", 50, 150);
+  moon();
 }
 
 function winningScreen(x, y) {
