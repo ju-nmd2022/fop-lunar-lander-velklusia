@@ -200,10 +200,14 @@ let velocity = 0.15;
 let acceleration = 0.25;
 let isGameActive = false;
 
+function draw() {
+  background(0, 0, 0);
+  fill(255, 255, 255);
+  let mode = "start";
+
 //Screen changes
-function draw(){
   if (mode === "start"){
-    startingScreen();
+    welcomingScreen();
   }
   else if (mode === "game"){
     gamingScreen();
@@ -215,11 +219,6 @@ function draw(){
     losingScreen();
   }
 }
-
-function draw() {
-  background(0, 0, 0);
-  fill(255, 255, 255);
-  winningScreen();
   fill (255,255,0);
   if (keyIsDown(32)) {
     isGameActive = true;
@@ -251,7 +250,7 @@ function draw() {
       isGameActive= false;
     }
   }
-}
+
 
 //Functions for screens
 
