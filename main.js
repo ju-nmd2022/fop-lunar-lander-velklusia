@@ -194,15 +194,70 @@ function moon() {
   ellipse(680, 600, 50);
 } 
 
+let powerX = 300;
+let powerY = 0;
+let velocity = 0.15;
+let acceleration = 0.25;
+let isGameActive = false;
+
 //Screen changes
 function draw(){
-  winningScreen();
+  if (mode === "start"){
+    startingScreen();
+  }
+  else if (mode === "game"){
+    gamingScreen();
+  }
+  else if (mode === "win"){
+    winningScreen();
+  }
+  else if (mode === "lose"){
+    losingScreen();
+  }
+}
+
+function draw() {
+  background(0, 0, 0);
+  fill(255, 255, 255);
+  welcomingScreen();
   moon();
+  fill (255,255,0);
+  rocket(rocketX, rocketY);
+  if (keyIsDown(32)) {
+    isGameActive = true;
+  }
+  if (isGameActive) {
+    rocketX= rocketX + powerX;
+    rocketY = rocketY + powerY;
+    if (keyIsDown(38)) {
+      powerY = acceleration + velocity;
+      velocity = velocity - acceleration;
+    } else if (keyIsDown(40)) {
+      powerY = 10 + velocity;
+      velocity = velocity + acceleration;
+    } else {
+      powerY = powerY + 0.15;
+      velocity = 0.25;
+    }
+    if (keyIsDown(37)) {
+      powerX = -6;
+    } else if (keyIsDown(39)) {
+      powerX = 6;
+    } else {
+      powerX = 0;
+    }
+    if (rocketY >  400) {
+      isGameActive= false;
+    }
+    if (rocketY <   0) {
+      isGameActive= false;
+    }
+  }
 }
 
 //Functions for screens
 
-function startingScreen() {
+function welcomingScreen(x, y) {
   for (let star of stars) {
     star.update();
     star.draw();
@@ -220,7 +275,7 @@ function startingScreen() {
   text("Lunar Lander Game by vel klusia", 50, 100);
 }
 
-function gameOverScreen() {
+function gameOverScreen(x, y) {
   for (let star of stars) {
     star.update();
     star.draw();
@@ -238,7 +293,7 @@ function gameOverScreen() {
   text("go better for you.", 50, 120);
 }
 
-function winningScreen() {
+function winningScreen(x, y) {
   animation();
   fill(0);
   rect(0, 30, width/1.8, 100);
@@ -249,12 +304,4 @@ function winningScreen() {
   textSize(17);
   textFont("Courier New");
   text("The mission ended up as a success.", 50, 100);
-  moon();
-}
-function gamingScreen() {
-  background(0, 0, 0);
-  fill(255, 255, 255);
-  moon();
-  fill (255,255,0);
-  rocket(rocketX, rocketY);
 }
