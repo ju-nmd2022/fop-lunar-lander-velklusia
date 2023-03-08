@@ -201,7 +201,9 @@ function landingSpot () {
   fill (169,169,169);
   rect(300, 550, 100, 3);
 }
+
 //Inspired by series of lecture about Floppy Bird by Garrit
+
 let powerX = 0;
 let powerY = 0;
 let velocity = 0.20;
@@ -211,7 +213,23 @@ let mode = "start";
 let rocketX = 50;
 let rocketY = 100;
 
+
 function draw() {
+//Restarting the game
+if (keyIsDown(32) && mode === "start") {
+  mode = "game";
+  isGameActive = true;
+} else if (keyIsDown(32) && (mode === "lose" || mode === "win")) {
+  mode = "game";
+  isGameActive = true;
+  rocketX = 50;
+  rocketY = 100;
+  powerX = 0;
+  powerY = 0;
+  velocity = 0.20;
+  acceleration = 0.30;
+}
+
   if (mode === "start"){
     welcomingScreen();
 }
@@ -226,15 +244,6 @@ function draw() {
     gameOverScreen();
   }
   fill (255,255,0);
-
-//Restarting the game
-  if (keyIsDown(32) && mode === "start") {
-      mode = "game";
-      isGameActive = true;
-    } else if (keyIsDown(32) && (mode === "lose" || mode === "win")) {
-      mode = "game";
-      isGameActive = true;
-    }
 
   if (isGameActive) {
     rocketX= rocketX + powerX;
