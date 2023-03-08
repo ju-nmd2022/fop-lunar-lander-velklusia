@@ -1,4 +1,8 @@
 body {
-    background-color: black;
-  }
-  
+background-image: linear-gradient(#000000, #ffffff);
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0;  
+}

@@ -198,8 +198,8 @@ let velocity = 0.15;
 let acceleration = 0.25;
 let isGameActive = false;
 let mode = "start";
-rocketX = 100;
-rocketY = 80;
+let rocketX = 100;
+let rocketY = 80;
 
 function draw() {
   if (mode === "start"){
