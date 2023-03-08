@@ -193,7 +193,7 @@ function moon() {
   fill (192,192,192);
   ellipse(680, 600, 50);
 } 
-
+//Inspired by series of lecture about Floppy Bird by Garrit
 let powerX = 300;
 let powerY = 0;
 let velocity = 0.15;
