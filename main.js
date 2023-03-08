@@ -197,10 +197,10 @@ function moon() {
   ellipse(680, 600, 50);
 } 
 //Inspired by series of lecture about Floppy Bird by Garrit
-let powerX = 300;
+let powerX = 0;
 let powerY = 0;
-let velocity = 0.15;
-let acceleration = 0.25;
+let velocity = 0.20;
+let acceleration = 0.30;
 let isGameActive = false;
 let mode = "start";
 let rocketX = 50;
@@ -249,7 +249,7 @@ function draw() {
     } else {
       powerX = 0;
     }
-    if (rocketY >  490) {
+    if (rocketY >  550) {
       isGameActive= false;
       mode = "lose";
     }
@@ -265,7 +265,17 @@ function draw() {
       isGameActive= false;
       mode = "lose";
     }
-  }
+    
+    if (rocketX > 300 && rocketY >= 450 && rocketX < 400) {
+      if (powerY < 5) {
+          isGameActive = false;
+          mode = "win";
+    } else {
+          isGameActive = false;
+          mode = "lose";
+          }
+        }
+      }
 
 
 //Layout of screens
@@ -345,5 +355,4 @@ function winningScreen() {
   if (keyIsDown(32) && mode === "win") {
     mode = "game";
     isGameActive = true;}
-}
-}
+}}
