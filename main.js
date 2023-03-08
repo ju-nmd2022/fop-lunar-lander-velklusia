@@ -201,8 +201,7 @@ let acceleration = 0.25;
 let isGameActive = false;
 
 function draw() {
-  background(0, 0, 0);
-  fill(255, 255, 255);
+  
   let mode = "start";
 
   if (mode === "start"){
@@ -218,7 +217,8 @@ function draw() {
     losingScreen();
   }
   fill (255,255,0);
-    if (keyIsDown(32) && mode === "start") {
+    
+  if (keyIsDown(32) && mode === "start") {
       mode = "game";
     } else if (keyIsDown(32) && (mode === "lose" || mode === "win")) {
       mode = "game";
@@ -256,6 +256,8 @@ function draw() {
 //Functions for screens
 
 function welcomingScreen(x, y) {
+  background(0, 0, 0);
+  fill(255, 255, 255);
   for (let star of stars) {
     star.update();
     star.draw();
@@ -274,6 +276,8 @@ function welcomingScreen(x, y) {
 }
 
 function gameScreen(){
+  background(0, 0, 0);
+  fill(255, 255, 255);
   for (let star of stars) {
     star.update();
     star.draw();
@@ -283,6 +287,8 @@ function gameScreen(){
 }
 
 function gameOverScreen(x, y) {
+  background(0, 0, 0);
+  fill(255, 255, 255);
   for (let star of stars) {
     star.update();
     star.draw();
@@ -304,6 +310,8 @@ function gameOverScreen(x, y) {
 }
 
 function winningScreen(x, y) {
+  background(0, 0, 0);
+  fill(255, 255, 255);
   animation();
   fill(0);
   rect(0, 30, width/1.8, 100);
