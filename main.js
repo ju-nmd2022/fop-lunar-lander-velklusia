@@ -16,7 +16,7 @@ function setup() {
   }
 }
 
-//Main background animation
+//Main background animation inspired by https://vincentgarreau.com/particles.js/
 const numberOfStars = 250;
 const distance = 35;
 let stars = [];
