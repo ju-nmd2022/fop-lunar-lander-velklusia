@@ -1,4 +1,2 @@
-function initiateSound() {
-    rocketSound = new sound("rocket.mp3");
-    rocketSound.loop();
-}
+let mySound = new Audio('rocket.mp3')
+mySound.play()

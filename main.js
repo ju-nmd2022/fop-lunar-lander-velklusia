@@ -334,7 +334,10 @@ function gameOverScreen() {
   moon();
   if (keyIsDown(32) && mode === "lose") {
     mode = "game";
-    isGameActive = true;}
+    isGameActive = true;
+    let rocketX = 50;
+    let rocketY = 100;
+    }
 }
 
 function winningScreen() {
@@ -353,5 +356,9 @@ function winningScreen() {
   moon();
   if (keyIsDown(32) && mode === "win") {
     mode = "game";
-    isGameActive = true;}
+    isGameActive = true;
+    let rocketX = 50;
+    let rocketY = 100;
+   
+}
 }}
