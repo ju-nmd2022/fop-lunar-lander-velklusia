@@ -1,13 +1,18 @@
 const numberOfAsteroids = 700;
 let asteroids = [];
 
+const canvasWidth = 700;
+const canvasHeight = 600;
+
 function setup() {
-  createCanvas(700, 600);
+  var c = createCanvas(700, 600);
+  c.parent("canvas");
+  frameRate(30);
   for (let i = 0; i < numberOfStars; i++) {
     stars.push(new star());
   }
   for(let i = 0; i < numberOfAsteroids; i ++) {
-    asteroids.push(new Asteroid(random(width), random(height)));
+    asteroids.push(new Asteroid(random(canvasWidth), random(canvasHeight)));
   }
 }
 
@@ -18,8 +23,8 @@ let stars = [];
 
 class star {
 constructor() {
-  this.x = random(width);
-  this.y = random(height);
+  this.x = random(canvasWidth);
+  this.y = random(canvasHeight);
   this.r = random(1, 5);
   this.xSpeed = random(-1, 1);
   this.ySpeed = random(-1, 1);
@@ -32,10 +37,10 @@ constructor() {
 }
 
 wrap() {
-  if (this.x > width) this.x = 0;
-  if (this.y > height) this.y = 0;
-  if (this.x < 0) this.x = width;
-  if (this.y < 0) this.y = height;
+  if (this.x > canvasWidth) this.x = 0;
+  if (this.y > canvasHeight) this.y = 0;
+  if (this.x < 0) this.x = canvasWidth;
+  if (this.y < 0) this.y = canvasHeight;
 }
 
 draw() {
@@ -58,7 +63,7 @@ drawLines(stars) {
 function animation() {
   background(0, 50);
   
-  const acc = map(mouseX, 0, width, 0.25, 0.1);
+  const acc = map(mouseX, 0, canvasWidth, 0.25, 0.1);
   
   asteroids = asteroids.filter(asteroid => {
     asteroid.draw();
@@ -67,7 +72,7 @@ function animation() {
   });
   
   while(asteroids.length < numberOfAsteroids) {
-    asteroids.push(new Asteroid(random(width), random(height)));
+    asteroids.push(new Asteroid(random(canvasWidth), random(canvasHeight)));
   }
 }
 
@@ -78,7 +83,7 @@ class Asteroid {
     
     this.velocity = createVector(0, 0);
     
-    this.ang = atan2(y - (height/2), x - (width/5));
+    this.ang = atan2(y - (canvasHeight/2), x - (canvasWidth/5));
   }
   
   isActive() {
@@ -104,7 +109,7 @@ class Asteroid {
 }
 
 function onScreen(x, y) {
-  return x >= 0 && x <= width && y >= 0 && y <= height;  
+  return x >= 0 && x <= canvasWidth && y >= 0 && y <= canvasHeight;  
 }
 
 a = 300;
@@ -255,7 +260,7 @@ function draw() {
 
 //Layout of screens
 
-function welcomingScreen(x, y) {
+function welcomingScreen() {
   background(0, 0, 0);
   fill(255, 255, 255);
   for (let star of stars) {
@@ -264,7 +269,7 @@ function welcomingScreen(x, y) {
     star.drawLines(stars);
   }
   fill(0);
-  rect(0, 30, width/1.2, 90);
+  rect(canvasWidth*0.05, 30, canvasWidth/1.1, 90);
   fill(255);
   textSize(20);
   textFont("Courier New");
@@ -287,7 +292,7 @@ function gameScreen(){
   rocket();
 }
 
-function gameOverScreen(x, y) {
+function gameOverScreen() {
   background(0, 0, 0);
   fill(255, 255, 255);
   for (let star of stars) {
@@ -296,7 +301,7 @@ function gameOverScreen(x, y) {
     star.drawLines(stars);
   }
   fill(0);
-  rect(0, 30, width/1.7, 140);
+  rect(0, 30, canvasWidth/1.7, 140);
   fill(255);
   textSize(20);
   textFont("Courier New");
@@ -310,12 +315,12 @@ function gameOverScreen(x, y) {
   moon();
 }
 
-function winningScreen(x, y) {
+function winningScreen() {
   background(0, 0, 0);
   fill(255, 255, 255);
   animation();
   fill(0);
-  rect(0, 30, width/1.8, 100);
+  rect(0, 30, canvasWidth/1.8, 100);
   fill(255);
   textSize(20);
   textFont("Courier New");
