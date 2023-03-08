@@ -221,7 +221,7 @@ function draw() {
     } else if (keyIsDown(32) && (mode === "lose" || mode === "win")) {
       mode = "game";
     }
-    
+
   if (isGameActive) {
     rocketX= rocketX + powerX;
     rocketY = rocketY + powerY;
