@@ -196,6 +196,11 @@ function moon() {
   fill (192,192,192);
   ellipse(680, 600, 50);
 } 
+
+function landingSpot () {
+  fill (169,169,169);
+  rect(300, 550, 100, 3);
+}
 //Inspired by series of lecture about Floppy Bird by Garrit
 let powerX = 0;
 let powerY = 0;
@@ -267,7 +272,7 @@ function draw() {
     }
     
     if (rocketX > 300 && rocketY >= 450 && rocketX < 400) {
-      if (powerY < 2) {
+      if (powerY < 1) {
           isGameActive = false;
           mode = "win";
     } else {
@@ -292,11 +297,10 @@ function welcomingScreen() {
   fill(255);
   textSize(20);
   textFont("Courier New");
-  text("Press space to initiate", 50, 70);
   text("Press space to initiate the launching sequence...", 50, 70);
   textSize(17);
   textFont("Courier New");
-  text("Lunar Lander Game by vel klusia", 50, 100);
+  text("Lunar Lander Game by vel klusia 🚀🌍", 50, 100);
 }
 
 function gameScreen(){
@@ -308,6 +312,7 @@ function gameScreen(){
     star.drawLines(stars);
   }
   moon();
+  landingSpot();
   rocket();
 }
 
@@ -330,7 +335,7 @@ function gameOverScreen() {
   text("Maybe next time it is going to", 50, 100);
   text("go better for you.", 50, 120);
   textSize(14);
-  text("Press space to restart the mission...", 50, 150);
+  text("Press space to initate launching...", 50, 150);
   moon();
   if (keyIsDown(32) && mode === "lose") {
     mode = "game";
@@ -358,7 +363,6 @@ function winningScreen() {
     mode = "game";
     isGameActive = true;
     let rocketX = 50;
-    let rocketY = 100;
-   
+    let rocketY = 100;  
 }
 }}
