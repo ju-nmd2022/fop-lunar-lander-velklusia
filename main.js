@@ -227,6 +227,7 @@ function draw() {
   }
   fill (255,255,0);
 
+//Restarting the game
   if (keyIsDown(32) && mode === "start") {
       mode = "game";
       isGameActive = true;
