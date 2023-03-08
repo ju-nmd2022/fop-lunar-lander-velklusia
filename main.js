@@ -218,7 +218,7 @@ function draw() {
     winningScreen();
   }
   else if (mode === "lose"){
-    losingScreen();
+    gameOverScreen();
   }
   fill (255,255,0);
   if (keyIsDown(32) && mode === "start") {
@@ -249,11 +249,13 @@ function draw() {
     } else {
       powerX = 0;
     }
-    if (rocketY >  400) {
+    if (rocketY >  450) {
       isGameActive= false;
+      mode = "lose";
     }
     if (rocketY <   0) {
       isGameActive= false;
+      mode = "lose";
     }
   }
 
@@ -269,7 +271,7 @@ function welcomingScreen() {
     star.drawLines(stars);
   }
   fill(0);
-  rect(canvasWidth*0.05, 30, canvasWidth/1.1, 90);
+  rect(0, 30, canvasWidth/1.05, 90);
   fill(255);
   textSize(20);
   textFont("Courier New");
@@ -313,6 +315,9 @@ function gameOverScreen() {
   textSize(14);
   text("Press space to restart the mission...", 50, 150);
   moon();
+  if (keyIsDown(32) && mode === "lose") {
+    mode = "game";
+    isGameActive = true;}
 }
 
 function winningScreen() {
@@ -320,7 +325,7 @@ function winningScreen() {
   fill(255, 255, 255);
   animation();
   fill(0);
-  rect(0, 30, canvasWidth/1.8, 100);
+  rect(0, 30, canvasWidth/1.6, 100);
   fill(255);
   textSize(20);
   textFont("Courier New");
@@ -329,4 +334,8 @@ function winningScreen() {
   textFont("Courier New");
   text("The mission ended up as a success.", 50, 100);
   moon();
-}}
+  if (keyIsDown(32) && mode === "win") {
+    mode = "game";
+    isGameActive = true;}
+}
+}
