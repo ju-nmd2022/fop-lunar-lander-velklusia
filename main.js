@@ -205,13 +205,8 @@ function draw() {
   fill(255, 255, 255);
   let mode = "start";
 
-//Screen changes
   if (mode === "start"){
     welcomingScreen();
-    if (keyIsDown(32)) {
-      isGameActive= true;
-      mode = "game";
-    }
 }
   else if (mode === "game"){
     gamingScreen();
@@ -222,9 +217,13 @@ function draw() {
   else if (mode === "lose"){
     losingScreen();
   }
-}
   fill (255,255,0);
-
+    if (keyIsDown(32) && mode === "start") {
+      mode = "game";
+    } else if (keyIsDown(32) && (mode === "lose" || mode === "win")) {
+      mode = "game";
+    }
+  
   if (isGameActive) {
     rocketX= rocketX + powerX;
     rocketY = rocketY + powerY;
@@ -316,4 +315,4 @@ function winningScreen(x, y) {
   textFont("Courier New");
   text("The mission ended up as a success.", 50, 100);
   moon();
-}
+}}
