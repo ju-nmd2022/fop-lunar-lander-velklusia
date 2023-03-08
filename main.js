@@ -208,7 +208,11 @@ function draw() {
 //Screen changes
   if (mode === "start"){
     welcomingScreen();
-  }
+    if (keyIsDown(32)) {
+      isGameActive= true;
+      mode = "game";
+    }
+}
   else if (mode === "game"){
     gamingScreen();
   }
@@ -220,9 +224,7 @@ function draw() {
   }
 }
   fill (255,255,0);
-  if (keyIsDown(32)) {
-    isGameActive = true;
-  }
+
   if (isGameActive) {
     rocketX= rocketX + powerX;
     rocketY = rocketY + powerY;
