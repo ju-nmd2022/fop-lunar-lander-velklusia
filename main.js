@@ -122,17 +122,17 @@ function rocket(a, b) {
   fill(102, 0, 204);
   arc(a, b + 36, 40, 40, PI, 0, CHORD);
   //Rocket
-  stroke(2);
+  noStroke();
   fill(204, 153, 255);
   ellipse(a, b, 35, 80);
   //Window
   noStroke();
-  fill(0);
+  fill(48, 25, 52);
   ellipse(a, b -8 , 20, 20);
   fill(255);
-  ellipse(a, b -8 , 16, 16);
+  ellipse(a, b -8 , 15, 15);
   //Front wing
-  stroke(2);
+  noStroke();
   fill(102, 0, 204);
   ellipse(a, b + 32, 5, 30);
   //Tip of the rocket, credits to Samira for helping me out <3
