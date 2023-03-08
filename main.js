@@ -337,11 +337,15 @@ function gameOverScreen() {
   textSize(14);
   text("Press space to initate launching...", 50, 150);
   moon();
-  if (keyIsDown(32) && mode === "lose") {
+  if (keyIsDown(32)) {
     mode = "game";
     isGameActive = true;
     let rocketX = 50;
     let rocketY = 100;
+    let powerX = 0;
+    let powerY = 0;
+    let velocity = 0.20;
+    let acceleration = 0.30;
     }
 }
 
@@ -359,10 +363,14 @@ function winningScreen() {
   textFont("Courier New");
   text("The mission ended up as a success.", 50, 100);
   moon();
-  if (keyIsDown(32) && mode === "win") {
+  if (keyIsDown(32)) {
     mode = "game";
     isGameActive = true;
     let rocketX = 50;
     let rocketY = 100;  
+    let powerX = 0;
+  let powerY = 0;
+  let velocity = 0.20;
+  let acceleration = 0.30;
 }
 }}
