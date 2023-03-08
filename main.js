@@ -218,8 +218,10 @@ function draw() {
   fill (255,255,0);
   if (keyIsDown(32) && mode === "start") {
       mode = "game";
+      isGameActive = true;
     } else if (keyIsDown(32) && (mode === "lose" || mode === "win")) {
       mode = "game";
+      isGameActive = true;
     }
 
   if (isGameActive) {
