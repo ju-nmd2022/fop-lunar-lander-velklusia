@@ -109,8 +109,6 @@ function onScreen(x, y) {
 
 a = 300;
 b = 640;
-rocketX = 500;
-rocketY = 80;
 
 function rocket(a, b) {
   //Flames
@@ -199,16 +197,17 @@ let powerY = 0;
 let velocity = 0.15;
 let acceleration = 0.25;
 let isGameActive = false;
+let mode = "start";
+rocketX = 100;
+rocketY = 80;
 
 function draw() {
-  
-  let mode = "start";
-
   if (mode === "start"){
     welcomingScreen();
 }
   else if (mode === "game"){
-    gamingScreen();
+    gameScreen();
+    rocket(rocketX, rocketY);  
   }
   else if (mode === "win"){
     winningScreen();
@@ -217,13 +216,12 @@ function draw() {
     losingScreen();
   }
   fill (255,255,0);
-    
   if (keyIsDown(32) && mode === "start") {
       mode = "game";
     } else if (keyIsDown(32) && (mode === "lose" || mode === "win")) {
       mode = "game";
     }
-  
+    
   if (isGameActive) {
     rocketX= rocketX + powerX;
     rocketY = rocketY + powerY;
@@ -253,7 +251,7 @@ function draw() {
   }
 
 
-//Functions for screens
+//Layout of screens
 
 function welcomingScreen(x, y) {
   background(0, 0, 0);
@@ -283,7 +281,8 @@ function gameScreen(){
     star.draw();
     star.drawLines(stars);
   }
-  rocket(height/2.2, width/8);
+  moon();
+  rocket();
 }
 
 function gameOverScreen(x, y) {
