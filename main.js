@@ -267,7 +267,7 @@ function draw() {
     }
     
     if (rocketX > 300 && rocketY >= 450 && rocketX < 400) {
-      if (powerY < 5) {
+      if (powerY < 2) {
           isGameActive = false;
           mode = "win";
     } else {
@@ -276,7 +276,6 @@ function draw() {
           }
         }
       }
-
 
 //Layout of screens
 
