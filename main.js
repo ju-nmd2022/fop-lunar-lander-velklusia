@@ -203,8 +203,8 @@ let velocity = 0.15;
 let acceleration = 0.25;
 let isGameActive = false;
 let mode = "start";
-let rocketX = 100;
-let rocketY = 80;
+let rocketX = 50;
+let rocketY = 100;
 
 function draw() {
   if (mode === "start"){
@@ -249,11 +249,19 @@ function draw() {
     } else {
       powerX = 0;
     }
-    if (rocketY >  450) {
+    if (rocketY >  490) {
       isGameActive= false;
       mode = "lose";
     }
-    if (rocketY <   0) {
+    if (rocketY <   20) {
+      isGameActive= false;
+      mode = "lose";
+    }
+    if (rocketX <   0) {
+      isGameActive= false;
+      mode = "lose";
+    }
+    if (rocketX >   700) {
       isGameActive= false;
       mode = "lose";
     }
